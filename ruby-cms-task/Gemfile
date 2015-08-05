@@ -27,7 +27,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 #will_paginate
 gem 'will_paginate', '~> 3.0.7'
 
-gem 'pg'
 gem 'rails_12factor'
 
 # Use ActiveModel has_secure_password
