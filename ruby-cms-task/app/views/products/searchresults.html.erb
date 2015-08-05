@@ -1,0 +1,46 @@
+<div>
+	<h1> Search Results </h1>
+	<div style="float: right">
+		<%= link_to("<< Back to list", {action: 'index'}) %> | 
+		<%= link_to("Create New Product", {action: 'new'}) %> 
+	</div>
+	<div style="margin: 30px 0 0 0"><hr style="border-top: 1px solid red">
+	</div>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          	<th>ID</th>
+          	<th>Name</th>
+					<th>SKU</th>
+					<th>Category</th>
+					<th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @products.each do |p|%>
+			<tr>
+				<td><%= p.id %></td>
+				<td><%= p.name %></td>
+				<td><%= p.sku %></td>
+				<td><%= p.category %></td>
+				<td>
+					<%= link_to("Show", {action: 'show', id: p.id }) %> | 
+					<%= link_to("Update", {action: 'edit', id: p.id}) %> | 
+					<%= link_to("Delete", {action: 'delete', id: p.id}) %>
+				</td>
+			</tr>
+		<% end %>
+       </tbody>
+	</table>
+</div>
+<br>
+<div class="apple_pagination">
+	<div class="page_info">
+	  <%= page_entries_info @posts %>
+	</div>
+	<%= will_paginate @posts, :container => false %>
+</div>
+

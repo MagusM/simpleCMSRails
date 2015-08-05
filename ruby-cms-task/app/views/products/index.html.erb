@@ -1,0 +1,70 @@
+<div class="container-fluid">
+      <div class="row">
+        <div> 
+          <div>
+          	<h1 >Dashboard - Products</h1>
+            <div style="float: right"> <%= link_to("Create New Product", {action: 'new'}) %> </div>
+            <div style="margin: 30px 0 0 0"><hr style="border-top: 1px solid red"></div>
+          </div>
+
+          <% if !flash[:notice].blank? %>
+            <div class="alert alert-success fade in">
+              <%= link_to('<< X >>', {action: 'close_alert', alert_type: "notice", class: "close btn-success"}) %>
+              <strong>Success!</strong> <%= flash[:notice] %>.
+            </div>
+          <% end %>
+          <% if !flash[:alert].blank? %>
+            <div class="alert alert-danger fade in">
+              <%= link_to('<< X >>', {action: 'close_alert', alert_type: "alert", class: "close btn-danger"}) %>
+              <strong>Alert!</strong> <%= flash[:alert] %>.
+            </div>
+          <% end %>
+
+          <div style="float: right; width: 200px; margin-left: 20px">
+            <span class="bg-info">Filter by: </span> <br>
+            <ul>
+              <%= link_to("Books",          {action: "search_category", cat: "Books"})          %> |
+              <%= link_to("Laptops",        {action: "search_category", cat: "Laptops"})        %> |
+              <%= link_to("Mobile Phones",  {action: "search_category", cat: "Mobile Phones"})  %> |
+              <%= link_to("Laptops",        {action: "search_category", cat: "Laptops"})        %> |
+              <%= link_to("Computer Games", {action: "search_category", cat: "Computer Games"}) %> 
+            </ul>
+          </div>
+
+          <div class="table-responsive">
+            <table class="table table-striped">
+		      <thead>
+		        <tr>
+		          	<th>ID</th>
+		          	<th>Name</th>
+      					<th>SKU</th>
+      					<th>Category</th>
+      					<th>Action</th>
+		        </tr>
+		      </thead>
+		      <tbody>
+		        <% @products.each do |p|%>
+    				<tr>
+      					<td><%= p.id %></td>
+      					<td><%= p.name %></td>
+      					<td><%= p.sku %></td>
+      					<td><%= p.category %></td>
+      					<td><%= link_to("Show",    {action: 'show', id: p.id })  %> | 
+                    <%= link_to("Update",  {action: 'edit', id: p.id})   %> | 
+                    <%= link_to("Delete",  {action: 'delete', id: p.id}) %>
+                </td>
+    				</tr>
+    				<% end %>
+		       </tbody>
+  		    </table>
+          </div>
+          <div class="apple_pagination">
+            <div class="page_info">
+              <%= page_entries_info @posts %>
+            </div>
+            <%= will_paginate @posts, :container => false %>
+          </div>
+
+      </div>
+    </div>
+

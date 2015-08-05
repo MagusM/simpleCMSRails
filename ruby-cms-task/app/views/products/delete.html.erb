@@ -1,0 +1,31 @@
+<div>
+	<h1> Delete Product No.<%= @product.id %> ? </h1>
+	<div style="float: right"><%= link_to("<< Back to list", {action: 'index'}) %> | 
+		<%= link_to("Create New Product", {action: 'new'}) %> | 
+		<%= link_to("Update", {action: 'edit', id: @product.id}) %>
+	</div>
+	
+	<div style="margin: 30px 0 0 0"><hr style="border-top: 1px solid red"></div>
+</div>
+
+<div>
+	<table class="table-condensed" style="width: 500px">
+		<thead>
+			<th>ID</th>
+			<th>Name</th>
+			<th>SKU</th>
+			<th>Category</th>
+		</thead>
+		<tbody>
+			<td><%= @product.id %></td>
+			<td><%= @product.name %></td>
+			<td><%= @product.sku %></td>
+			<td><%= @product.category %></td>
+		</tbody>
+	</table>
+</div>
+
+<div>
+	<h4><span class="label label-danger">are you sure you want to delete this product?</span></h4>
+	<%= link_to("DELETE", {action: 'destroy', id: @product.id}, class: 'btn-danger') %>
+</div>

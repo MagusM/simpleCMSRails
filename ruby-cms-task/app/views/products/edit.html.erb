@@ -1,0 +1,38 @@
+<div>
+	<h1>Update Product No.<%= @product.id %></h1>
+	<div style="float: right">
+		<%= link_to("<< Back to list", {action: 'index'}) %> | 
+		<%= link_to("Create New Product", {action: 'new'}) %>  | 
+		<%= link_to("Delete", {action: 'delete', id: @product.id}) %>
+	</div>
+	<div style="margin: 30px 0 0 0"><hr style="border-top: 1px solid red"></div>
+</div>
+
+
+<div style="width: 50%; margin-left: 25%; margin-top: 50px;">
+
+	<h2 class="form-signin-heading" style="width: 250%">Please Enter New Product Information To Update</h2>
+
+	<%= form_for(:product, url: {action: 'update', id: @product.id, sku: @product.sku}) do |f| %>
+		<tr>
+			<th>Name:</th>
+			<td><%= f.text_field(:name,  class: 'form-control')%></td>
+		</tr>
+		<tr>
+			<th>SKU:</th>
+			<td><%= f.number_field(:sku,  class: 'form-control') %></td>
+		</tr>
+		<tr>
+			<th>Category:</th>
+			<td><%= f.text_field(:category,  class: 'form-control') %></td>
+		</tr><br>
+		<%= submit_tag('Edit Product', class: 'btn btn-lg btn-primary btn-block') %>
+	<% end %>
+</div>
+<br>
+<% if @product.errors.size > 0 %>
+	<div class="alert alert-danger fade in">
+		<%= link_to('<< X >>', {action: 'close_error', page: "edit", id: @product.id, class: "close btn-danger"}) %>
+		<h3><strong>Alert!</strong></h3> <br><%= error_messages_for(@product) %>
+	</div>
+<% end %>
