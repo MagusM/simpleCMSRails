@@ -27,6 +27,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 #will_paginate
 gem 'will_paginate', '~> 3.0.7'
 
+gem 'pg'
 gem 'rails_12factor'
 
 # Use ActiveModel has_secure_password
@@ -41,6 +42,9 @@ gem 'rails_12factor'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+
+  # passenger server instead of webbrick
+  gem "passenger"
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'

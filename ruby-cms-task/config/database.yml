@@ -50,5 +50,5 @@ test:
 production:
   <<: *default
   database: ruby_cms_task_production
-  username: ruby-cms-task
-  password: <%= ENV['RUBY-CMS-TASK_DATABASE_PASSWORD'] %>
+  username: admin#ruby-cms-task
+  password: <%= ENV['RUBY_CMS_TASK_DATABASE_PASSWORD'] %> #<%= ENV['RUBY-CMS-TASK_DATABASE_PASSWORD'] %>
