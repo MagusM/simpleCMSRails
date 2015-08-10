@@ -17,7 +17,9 @@ gem 'coffee-rails', '~> 4.1.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 #angulajs-rails
-gem 'angularjs-rails'
+#gem 'angularjs-rails'
+#bower-rails
+gem 'bower-rails'
 #angular-rails-templates
 gem 'angular-rails-templates', '~> 0.2.0'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

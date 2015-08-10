@@ -40,10 +40,10 @@ GEM
       railties (>= 3.1)
       sprockets (~> 2)
       tilt
-    angularjs-rails (1.4.3)
     arel (6.0.3)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bower-rails (0.10.0)
     builder (3.2.2)
     byebug (5.0.0)
       columnize (= 0.9.0)
@@ -160,7 +160,7 @@ PLATFORMS
 
 DEPENDENCIES
   angular-rails-templates (~> 0.2.0)
-  angularjs-rails
+  bower-rails
   byebug
   coffee-rails (~> 4.1.0)
   jbuilder (~> 2.0)
