@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
   private 
   def confirm_if_logged_in
+    authenticate
     unless session[:user_login_key]
       redirect_to(controller: 'login', action: 'login') 
       return false
@@ -12,5 +13,12 @@ class ApplicationController < ActionController::Base
       return true 
     end
   end  
+
+  def authenticate
+    if session[:user_login_key]
+      reset_session if session[:last_seen] < 10.minutes.ago
+      session[:last_seen] = Time.now
+    end
+  end
 
 end

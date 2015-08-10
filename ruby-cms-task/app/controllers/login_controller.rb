@@ -12,6 +12,7 @@ class LoginController < ApplicationController
     puts 
   	if user_info[:name].eql?("Darth") && user_info[:password].eql?("Vader")
   		session[:user_login_key] = rand(1000..2000)
+      session[:last_seen] = Time.now
       redirect_to(controller: 'products', action: 'index')
   	else
   		flash["error"] = "Oops name/password info entered not valid, please try again!"
@@ -21,6 +22,8 @@ class LoginController < ApplicationController
 
   def logout
     session[:user_login_key] = nil
+    session[:last_seen] = nil
+    reset_session
     redirect_to(controller: 'cms_task', action: 'index')
   end
 
